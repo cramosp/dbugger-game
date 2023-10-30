@@ -9,54 +9,54 @@
 ## Milestones
 
 - Milesstone 1:
-  [ ] Player that moves left to right.
-  [ ] Obstacles coming from above from a same position every 3 seconds.
-  [ ] Detect collition.
-  [ ] Display game-over if there's a collition.
+  [X] Player that moves left to right.
+  [X] Obstacles coming from above from a same position every 3 seconds.
+  [X] Detect collition.
+  [X] Display game-over if there's a collition.
 
 - Milestone 2:
-  [ ] Setting a board.
-  [ ] Set the player in the middle of the board to start the game. \*\*
-  [ ] Avoid the player moving outside the board.
-  [ ] Obstacles coming from random positions along the width of the board.
-  [ ] Avoid obstacles going outside the board.
+  [X] Setting a board.
+  [ ] Set the player in the middle of the board to start the game. //\*\* When I set this, then the player moves over the right border when moving right.
+  [X] Avoid the player moving outside the board.
+  [X] Obstacles coming from random positions along the width of the board.
+  [X] Avoid obstacles going outside the board.
 
 - Milestone 3:
-  [ ] Remove obstacles once they touch the floor.
-  [ ] Set a score that start from 0.
-  [ ] Display the score on top of the board.
+  [X] Remove obstacles once they touch the floor.
+  [X] Set a score that start from 0.
+  [X] Display the score on top of the board.
 
 - Milestone 4:
-  [ ] Create two types of obstacles: obstacles the player need to avoid, objects they player needs to collect.
-  [ ] If the player touches an obstacle, it's game over.
-  [ ] If the player collects an object the score increase by 1.
+  [X] Create two types of obstacles: obstacles the player need to avoid, objects they player needs to collect.
+  [X] If the player touches an obstacle, it's game over.
+  [X] If the player collects an object the score increase by 1.
 
 - Milestone 5:
+  [X] Set the image for the obstacle (poison jar).
   [ ] If the score reaches 40, player wins.
   [ ] Display that winner wins.
 
 - Milestone 6:
-  [ ] Implement shooting, the player can destroy the obstacles (not the objects).
-
-- Milestone 7:
-  [ ] If player shoots an obstacle (there's a collition), increase the score by 1.
-  [ ] Implement more than one type of object (images), that will be displayed randomly.
-
-- Milestone 8:
-  [ ] Create an array of words (basic vocabulary in English: colors, numbers, food...).
-  [ ] Link those words to the objects.
+  [ ] Create arrays of words (basic vocabulary in English: colors, numbers, food...).
   [ ] Display a random word on top of the board everytime the player collects an object.
+  [ ] Link those words to the objects (ie. the yellow worm image to 'yellow')
   [ ] If the object collected matches the word, increase the score by 1, and display a new word.
 
-- Milestone 9:
+- Milestone 7:
   [ ] If the player collects the incorrect object (one that is not linked to the displayed word), decrease score by 1.
   [ ] If score is < 0, it's game over.
+
+- Milestone 8:
+  [ ] Implement shooting, the player can destroy the obstacles (not the objects).
+
+- Milestone 9:
+  [ ] File with intro and instructions of the game, with a button to 'Start'.
+  [ ] Style game-over file (Alicia being a rock and the others surprised)
 
 ## Further Improvement
 
 [ ] Make it responsive (score and word).
-[ ] Adjust the player to the right.
-[ ] Choose character before starting the game.
+[ ] Choose character before starting the game (Alicia, Paco, Berta, Pepe, Paige...)
 [ ] Sounds.
 
 ////// README TEMPLATE

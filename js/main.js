@@ -1,9 +1,14 @@
 const myBoard = document.getElementById("board");
+
 const myBoardBounds = myBoard.getBoundingClientRect();
 const myBoardStyle = window.getComputedStyle(myBoard);
 const myBoardBorderWidth = parseInt(myBoardStyle.borderWidth, 10);
 const myBoardWidth = myBoardBounds.width - myBoardBorderWidth * 2;
-console.log(myBoardWidth);
+
+const myBoardBorderHeight = parseInt(myBoardStyle.borderHeight, 10);
+const myBoardHeight = myBoardBounds.height - myBoardBorderHeight * 2;
+
+let score = 0;
 
 class Player {
   constructor() {
@@ -36,8 +41,8 @@ class Player {
 
 class Obstacle {
   constructor() {
-    this.height = 30;
-    this.width = 30;
+    this.height = 75;
+    this.width = 40;
     this.positionX = Math.floor(Math.random() * (myBoardWidth - this.width));
     this.positionY = myBoardBounds.height - this.height;
     this.obstacleElm = null;
@@ -65,23 +70,55 @@ class Obstacle {
   }
 }
 
+class Object {
+  constructor() {
+    this.height = 30;
+    this.width = 30;
+    this.positionX = Math.floor(Math.random() * (myBoardWidth - this.width));
+    this.positionY = myBoardBounds.height - this.height;
+    this.objectElm = null;
+    this.objectSpeed = 3;
+
+    this.createDomElement();
+  }
+
+  createDomElement() {
+    this.objectElm = document.createElement("div");
+
+    this.objectElm.classList.add("object");
+    this.objectElm.style.width = this.width + "px";
+    this.objectElm.style.height = this.height + "px";
+    this.objectElm.style.left = this.positionX + "px";
+    this.objectElm.style.bottom = this.positionY + "px";
+
+    const parentElm = document.getElementById("board");
+    parentElm.appendChild(this.objectElm);
+  }
+
+  moveDown() {
+    this.positionY -= this.objectSpeed;
+    this.objectElm.style.bottom = this.positionY + "px";
+  }
+}
+
 const player = new Player();
 const obstaclesArr = [];
+const objectsArr = [];
 
-const gameSettings = {
+const obstaclesSettings = {
   delayBetweenObstacles: 2000,
 };
 
 setInterval(() => {
   const newObstacle = new Obstacle();
   obstaclesArr.push(newObstacle);
-}, gameSettings.delayBetweenObstacles);
+}, obstaclesSettings.delayBetweenObstacles);
 
 setInterval(() => {
   obstaclesArr.forEach((obstacleInstance) => {
     obstacleInstance.moveDown();
 
-    if (obstacleInstance.positionY < 0 - obstacleInstance.height) {
+    if (obstacleInstance.positionY < 75 - obstacleInstance.height) {
       obstacleInstance.obstacleElm.remove();
       obstaclesArr.shift();
     }
@@ -96,6 +133,50 @@ setInterval(() => {
     }
   });
 }, 30);
+
+const objectsSettings = {
+  delayBetweenObjects: 2000,
+};
+
+setInterval(() => {
+  const newObject = new Object();
+  objectsArr.push(newObject);
+}, objectsSettings.delayBetweenObjects);
+
+setInterval(() => {
+  objectsArr.forEach((objectInstance) => {
+    objectInstance.moveDown();
+
+    if (objectInstance.positionY < 30 - objectInstance.height) {
+      objectInstance.objectElm.remove();
+      objectsArr.shift();
+    }
+
+    if (
+      player.positionX < objectInstance.positionX + objectInstance.width &&
+      player.positionX + player.width > objectInstance.positionX &&
+      player.positionY < objectInstance.positionY + objectInstance.height &&
+      player.positionY + player.height > objectInstance.positionY
+    ) {
+      objectInstance.markedForRemoval = true;
+    }
+  });
+  for (let i = objectsArr.length - 1; i >= 0; i--) {
+    if (objectsArr[i].markedForRemoval) {
+      score++;
+      updateScore();
+      objectsArr[i].objectElm.remove();
+      objectsArr.splice(i, 1);
+    }
+  }
+}, 30);
+
+function updateScore() {
+  const scoreElement = document.getElementById("score");
+  scoreElement.innerText = "Score: " + score;
+}
+
+updateScore();
 
 document.addEventListener("keydown", (e) => {
   switch (e.code) {

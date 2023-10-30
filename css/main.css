@@ -48,6 +48,13 @@ body {
 }
 
 .obstacle {
+    background-image: url('../images/obstacle.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.object {
     background-color: rgb(255, 0, 120);
     position: absolute;
 }
