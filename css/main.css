@@ -1,0 +1,48 @@
+body {
+    background-color: rgb(136, 221, 203);
+}
+
+#header {
+    width: 50%;
+    height: 10vh;
+    margin: auto;
+    padding: 10px;
+    border: 3px solid rgb(136, 221, 203);
+    background-color: rgb(136, 221, 203);
+    color: white;
+    font-size: 3vh; /* Fix this to be responsive */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: row;
+}
+
+#score {
+    width: 50vw;
+    border: 5px solid rgb(136, 221, 203);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#word {
+    width: 30vw;
+    border: 5px solid rgba(0, 0, 0, 0.158);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#board {
+    width: 80vw;
+    height: 70vh;
+    margin: auto;
+    padding: 2vw 2vh;
+    border: 0.5vw solid;
+    background: -webkit-linear-gradient(left, #edaef9 0%,#81b1fa 100%);
+    position: relative;
+}
+
+#player {
+    background-color: rgb(10, 81, 82);
+    position: absolute;
+}
