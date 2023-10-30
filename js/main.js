@@ -34,7 +34,68 @@ class Player {
   }
 }
 
+class Obstacle {
+  constructor() {
+    this.height = 30;
+    this.width = 30;
+    this.positionX = Math.floor(Math.random() * (myBoardWidth - this.width));
+    this.positionY = myBoardBounds.height - this.height;
+    this.obstacleElm = null;
+    this.obstacleSpeed = 5;
+
+    this.createDomElement();
+  }
+
+  createDomElement() {
+    this.obstacleElm = document.createElement("div");
+
+    this.obstacleElm.classList.add("obstacle");
+    this.obstacleElm.style.width = this.width + "px";
+    this.obstacleElm.style.height = this.height + "px";
+    this.obstacleElm.style.left = this.positionX + "px";
+    this.obstacleElm.style.bottom = this.positionY + "px";
+
+    const parentElm = document.getElementById("board");
+    parentElm.appendChild(this.obstacleElm);
+  }
+
+  moveDown() {
+    this.positionY -= this.obstacleSpeed;
+    this.obstacleElm.style.bottom = this.positionY + "px";
+  }
+}
+
 const player = new Player();
+const obstaclesArr = [];
+
+const gameSettings = {
+  delayBetweenObstacles: 2000,
+};
+
+setInterval(() => {
+  const newObstacle = new Obstacle();
+  obstaclesArr.push(newObstacle);
+}, gameSettings.delayBetweenObstacles);
+
+setInterval(() => {
+  obstaclesArr.forEach((obstacleInstance) => {
+    obstacleInstance.moveDown();
+
+    if (obstacleInstance.positionY < 0 - obstacleInstance.height) {
+      obstacleInstance.obstacleElm.remove();
+      obstaclesArr.shift();
+    }
+
+    if (
+      player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
+      player.positionX + player.width > obstacleInstance.positionX &&
+      player.positionY < obstacleInstance.positionY + obstacleInstance.height &&
+      player.positionY + player.height > obstacleInstance.positionY
+    ) {
+      location.href = "../html/game-over.html";
+    }
+  });
+}, 30);
 
 document.addEventListener("keydown", (e) => {
   switch (e.code) {

@@ -47,6 +47,16 @@ body {
     position: absolute;
 }
 
+.obstacle {
+    background-color: rgb(255, 0, 120);
+    position: absolute;
+}
+
+#page-gameover {
+    text-align: center;
+    background-color: rgb(166, 161, 171);
+}
+
 @media screen and (max-width: 768px) {
     #header {
         width: 80%;
