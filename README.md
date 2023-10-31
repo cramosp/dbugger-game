@@ -16,7 +16,7 @@
 
 - Milestone 2:
   [X] Setting a board.
-  [ ] Set the player in the middle of the board to start the game. //\*\* When I set this, then the player moves over the right border when moving right.
+  [ ] Set the player in the middle of the board to start the game. \*\* When I set this, then the player moves over the right border when moving right.
   [X] Avoid the player moving outside the board.
   [X] Obstacles coming from random positions along the width of the board.
   [X] Avoid obstacles going outside the board.
@@ -34,7 +34,8 @@
 - Milestone 5:
   [X] Set the image for the obstacle (poison jar).
   [ ] If the score reaches 40, player wins.
-  [ ] Display that winner wins.
+  [ ] Display that winner wins in an overlay.
+  [ ] Tranform the game-over page to an overlay.
 
 - Milestone 6:
   [ ] Create arrays of words (basic vocabulary in English: colors, numbers, food...).
@@ -55,48 +56,24 @@
 
 ## Further Improvement
 
+[ ] Change help button to an icon button.
 [ ] Make it responsive (score and word).
 [ ] Choose character before starting the game (Alicia, Paco, Berta, Pepe, Paige...)
 [ ] Sounds.
+[ ] Increase speed as user moves to next level.
+[ ] Life line?
 
-////// README TEMPLATE
-
-## Description
-
-OOP game built with web technologies (html, css, javascript)
-
-## How to play
-
-Move player with arrow keys :)
-
-## Demo
-
-to-do
-
-## Further Improvements
-
-Fix:
-
-- [x] remove obstacles as they go outside board
-- [ ] prevent player from going outside
-
-Functionality:
-
-- shooting (recommended)
-- drop different things (prizes, different types of obstacles...)
-- count points
-- improve game over
-- levels (ex. increasing speed as user moves to the next level)
-- multiple lives
-- allow moving the player up and down
-- random sizes for obstacles
-
-UX:
-
-- add images or textures/gradients (background, player, obstacles...)
-- sound
-
-Code quality:
+## Improve code quality:
 
 - create a Game class (keeping there all information and functionality related to the game)
 - settings (speed of the game, distance between obstacles)
+
+## Description
+
+OOP game built with web technologies (HTML, CSS, JavaScript).
+
+## How to play
+
+Move player left and right with arrow keys.
+Avoid the obstacles.
+Collect the objects.

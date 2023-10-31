@@ -10,11 +10,35 @@ const myBoardHeight = myBoardBounds.height - myBoardBorderHeight * 2;
 
 let score = 0;
 
+const colors = ["yellow", "red", "blue", "pink", "green"];
+const numbers = ["four", "six", "nine", "three", "eight"];
+const food = ["banana", "milk", "apple", "burger", "biscuit"];
+
+let selectedWord;
+
+function getRandomWordByScore() {
+  if (score <= 5) {
+    return colors[Math.floor(Math.random() * colors.length)];
+  } else if (score <= 10) {
+    return numbers[Math.floor(Math.random() * numbers.length)];
+  } else {
+    return food[Math.floor(Math.random() * food.length)];
+  }
+}
+
+function updateSelectedWord() {
+  selectedWord = getRandomWordByScore();
+  const scoreElement = document.getElementById("word");
+  scoreElement.innerText = selectedWord;
+}
+
+updateSelectedWord();
+
 class Player {
   constructor() {
-    this.height = 70;
-    this.width = 40;
-    this.positionX = 0; // Fix it.
+    this.height = 100;
+    this.width = 80;
+    this.positionX = (myBoardWidth - this.width) / 2;
     this.positionY = 0;
     this.step = 15;
 
@@ -71,9 +95,10 @@ class Obstacle {
 }
 
 class Object {
-  constructor() {
-    this.height = 30;
-    this.width = 30;
+  constructor(word) {
+    this.word = word;
+    this.height = 75;
+    this.width = 40;
     this.positionX = Math.floor(Math.random() * (myBoardWidth - this.width));
     this.positionY = myBoardBounds.height - this.height;
     this.objectElm = null;
@@ -90,6 +115,27 @@ class Object {
     this.objectElm.style.height = this.height + "px";
     this.objectElm.style.left = this.positionX + "px";
     this.objectElm.style.bottom = this.positionY + "px";
+
+    let imageElm = document.createElement("img");
+    switch (this.word) {
+      case "blue":
+        imageElm.src = "../images/blueworm.jpg";
+        break;
+      case "green":
+        imageElm.src = "../images/greenworm.jpg";
+        break;
+      case "pink":
+        imageElm.src = "../images/pinkworm.jpg";
+        break;
+      case "red":
+        imageElm.src = "../images/redworm.jpg";
+        break;
+      case "yellow":
+        imageElm.src = "../images/yellowworm.jpg";
+        break;
+    }
+
+    this.objectElm.appendChild(imageElm);
 
     const parentElm = document.getElementById("board");
     parentElm.appendChild(this.objectElm);
@@ -129,7 +175,7 @@ setInterval(() => {
       player.positionY < obstacleInstance.positionY + obstacleInstance.height &&
       player.positionY + player.height > obstacleInstance.positionY
     ) {
-      location.href = "../html/game-over.html";
+      location.href = "../html/game-over.html"; // change this to an overlay
     }
   });
 }, 30);
@@ -139,7 +185,8 @@ const objectsSettings = {
 };
 
 setInterval(() => {
-  const newObject = new Object();
+  const randomWord = getRandomWordByScore();
+  const newObject = new Object(randomWord);
   objectsArr.push(newObject);
 }, objectsSettings.delayBetweenObjects);
 
@@ -147,7 +194,7 @@ setInterval(() => {
   objectsArr.forEach((objectInstance) => {
     objectInstance.moveDown();
 
-    if (objectInstance.positionY < 30 - objectInstance.height) {
+    if (objectInstance.positionY < 75 - objectInstance.height) {
       objectInstance.objectElm.remove();
       objectsArr.shift();
     }
@@ -161,12 +208,26 @@ setInterval(() => {
       objectInstance.markedForRemoval = true;
     }
   });
+
   for (let i = objectsArr.length - 1; i >= 0; i--) {
     if (objectsArr[i].markedForRemoval) {
-      score++;
+      if (objectsArr[i].word === selectedWord) {
+        score++;
+        updateSelectedWord();
+      } else {
+        score--;
+      }
+
       updateScore();
       objectsArr[i].objectElm.remove();
       objectsArr.splice(i, 1);
+
+      if (score === 2) {
+        const overlay = document.getElementById("winner-overlay");
+        overlay.classList.toggle("show-overlay");
+      } else if (score < 0) {
+        location.href = "../html/game-over.html"; // change this to an overlay
+      }
     }
   }
 }, 30);
