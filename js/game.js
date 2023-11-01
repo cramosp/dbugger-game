@@ -34,14 +34,23 @@ class Game {
     this.score = 0;
     this.word = new Word(this.score);
     this.player = new Player();
-    this.obstaclesArr = [];
-    this.objectsArr = [];
     this.updateScore();
 
     clearInterval(this.obstacleCreateIntervalId);
     clearInterval(this.initObstacleIntervalId);
     clearInterval(this.objectCreateIntervalId);
     clearInterval(this.initObjectIntervalId);
+
+    this.obstaclesArr.forEach((obstacle) => {
+      obstacle.obstacleElm.remove();
+    });
+
+    this.objectsArr.forEach((object) => {
+      object.objectElm.remove();
+    });
+
+    this.obstaclesArr = [];
+    this.objectsArr = [];
   }
 
   createObstacle() {
@@ -114,9 +123,9 @@ class Game {
 
       for (let i = this.objectsArr.length - 1; i >= 0; i--) {
         if (this.objectsArr[i].markedForRemoval) {
-          if (this.objectsArr[i].word === this.selectedWord) {
+          if (this.objectsArr[i].word === this.word.selectedWord) {
             this.score++;
-            this.updateSelectedWord(this.score);
+            this.word.updateSelectedWord(this.score);
           } else {
             this.score--;
           }
@@ -126,12 +135,10 @@ class Game {
           this.objectsArr.splice(i, 1);
 
           if (this.score === 2) {
-            clearInterval();
             const winnerOverlay = document.getElementById("winner-overlay");
             winnerOverlay.classList.toggle("show-overlay");
             this.reset();
           } else if (this.score < 0) {
-            clearInterval();
             const loserOverlay = document.getElementById("game-over-overlay");
             loserOverlay.classList.toggle("show-overlay");
             this.reset();

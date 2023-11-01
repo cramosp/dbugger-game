@@ -4,6 +4,7 @@ const food = ["banana", "milk", "apple", "burger", "biscuit"];
 
 class Word {
   constructor(score) {
+    this.selectedWord;
     this.updateSelectedWord(score);
   }
 

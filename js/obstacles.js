@@ -1,7 +1,7 @@
 class Obstacle {
   constructor() {
-    this.height = 75;
-    this.width = 40;
+    this.height = 60;
+    this.width = 60;
     this.positionX = Math.floor(Math.random() * (myBoardWidth - this.width));
     this.positionY = myBoardBounds.height - this.height;
     this.obstacleElm = null;
@@ -32,8 +32,8 @@ class Obstacle {
 class Object {
   constructor(word) {
     this.word = word;
-    this.height = 75;
-    this.width = 40;
+    this.height = 60;
+    this.width = 60;
     this.positionX = Math.floor(Math.random() * (myBoardWidth - this.width));
     this.positionY = myBoardBounds.height - this.height;
     this.objectElm = null;
@@ -54,19 +54,19 @@ class Object {
     let imageElm = document.createElement("img");
     switch (this.word) {
       case "blue":
-        imageElm.src = "./images/blueworm.jpg";
+        imageElm.src = "./images/blue.png";
         break;
       case "green":
-        imageElm.src = "./images/greenworm.jpg";
+        imageElm.src = "./images/green.png";
         break;
       case "pink":
-        imageElm.src = "./images/pinkworm.jpg";
+        imageElm.src = "./images/pink.png";
         break;
       case "red":
-        imageElm.src = "./images/redworm.jpg";
+        imageElm.src = "./images/red.png";
         break;
       case "yellow":
-        imageElm.src = "./images/yellowworm.jpg";
+        imageElm.src = "./images/yellow.png";
         break;
     }
 
