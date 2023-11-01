@@ -18,7 +18,7 @@ class Game {
           this.player.moveRight();
           break;
         case "Space":
-          this.player.shoot();
+          this.player.shoot(this.obstaclesArr);
           break;
       }
     });
@@ -65,7 +65,10 @@ class Game {
       this.obstaclesArr.forEach((obstacleInstance) => {
         obstacleInstance.moveDown();
 
-        if (obstacleInstance.positionY < 75 - obstacleInstance.height) {
+        if (
+          obstacleInstance.positionY <
+          this.player.height - obstacleInstance.height
+        ) {
           obstacleInstance.obstacleElm.remove();
           this.obstaclesArr.shift();
         }
@@ -103,7 +106,10 @@ class Game {
       this.objectsArr.forEach((objectInstance) => {
         objectInstance.moveDown();
 
-        if (objectInstance.positionY < 75 - objectInstance.height) {
+        if (
+          objectInstance.positionY <
+          this.player.height - objectInstance.height
+        ) {
           objectInstance.objectElm.remove();
           this.objectsArr.shift();
         }

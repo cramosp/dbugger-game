@@ -126,6 +126,11 @@ body {
     height: 100%;
 }
 
+.bullet {
+    background-color: pink;
+    position: absolute;
+}
+
 @media screen and (max-width: 768px) {
     #header {
         width: 80%;
