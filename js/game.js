@@ -134,7 +134,7 @@ class Game {
           this.objectsArr[i].objectElm.remove();
           this.objectsArr.splice(i, 1);
 
-          if (this.score === 2) {
+          if (this.score === 15) {
             const winnerOverlay = document.getElementById("winner-overlay");
             winnerOverlay.classList.toggle("show-overlay");
             this.reset();
