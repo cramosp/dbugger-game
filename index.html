@@ -14,13 +14,37 @@
 <body>
 
     <div id="winner-overlay" class="overlay">
-        <h2>YOU WON!</h2>
-        <p>Alicia is safe.</p>
+        <h2>Impressive!</h2>
+        <p>All bugs are captured and Crampis is the Queen now!</p>
+        <button class="playagain-button"><span>
+            Play again
+            </span></button>
     </div>
 
     <div id="game-over-overlay" class="overlay">
         <h2>OH NO!</h2>
-        <p>Crampis lost all her insects.</p>
+        <p>All bugs scaped from Crampis hands.</p>
+        <button class="playagain-button"><span>
+            Play again
+            </span></button>
+    </div>
+
+    <div id="instructions-overlay" class="overlay">
+        <h2>HOW TO PLAY?</h2>
+        <ul>
+            <li>Move the player left and right with the arrow keys from your keyboard.</li>
+            <li>Don't let the tree trunks touch the player.</li>
+            <li>Collect the right objects according to the word displayed on top of the board.</li>
+            <li>Destroy the trunks pressing the spacebar.</li>
+        </ul>
+        <h2>HOW TO WIN?</h2>
+        <ul>
+            <li>Capture the bugs and score 15 points.</li>
+        </ul>
+        
+        <button class="playagain-button"><span>
+            START
+            </span></button>
     </div>
 
     <section id="header">
@@ -30,18 +54,18 @@
 
     <div id="board">
         <div id="player"></div>
-
     </div>
 
     <button class="help-button"><span class="material-symbols-outlined">
         help
         </span></button>
-
-    <footer id="authors">
-        <div id="cris"></div>
-        <div id="chapu"></div>
-    </footer>
     
+    <script src="./js/board.js"></script>
+    <script src="./js/word.js"></script>
+    <script src="./js/player.js"></script>
+    <script src="./js/obstacles.js"></script>
+    <script src="./js/game.js"></script>
     <script src="./js/main.js"></script>
+
 </body>
 </html>
