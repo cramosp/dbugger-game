@@ -119,19 +119,19 @@ class Object {
     let imageElm = document.createElement("img");
     switch (this.word) {
       case "blue":
-        imageElm.src = "../images/blueworm.jpg";
+        imageElm.src = "./images/blueworm.jpg";
         break;
       case "green":
-        imageElm.src = "../images/greenworm.jpg";
+        imageElm.src = "./images/greenworm.jpg";
         break;
       case "pink":
-        imageElm.src = "../images/pinkworm.jpg";
+        imageElm.src = "./images/pinkworm.jpg";
         break;
       case "red":
-        imageElm.src = "../images/redworm.jpg";
+        imageElm.src = "./images/redworm.jpg";
         break;
       case "yellow":
-        imageElm.src = "../images/yellowworm.jpg";
+        imageElm.src = "./images/yellowworm.jpg";
         break;
     }
 
@@ -175,7 +175,7 @@ setInterval(() => {
       player.positionY < obstacleInstance.positionY + obstacleInstance.height &&
       player.positionY + player.height > obstacleInstance.positionY
     ) {
-      location.href = "../html/game-over.html"; // change this to an overlay
+      console.log("game over"); // change this to an overlay
     }
   });
 }, 30);
@@ -226,7 +226,7 @@ setInterval(() => {
         const overlay = document.getElementById("winner-overlay");
         overlay.classList.toggle("show-overlay");
       } else if (score < 0) {
-        location.href = "../html/game-over.html"; // change this to an overlay
+        console.log("you won"); // change this to an overlay
       }
     }
   }

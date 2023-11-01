@@ -16,7 +16,7 @@
 
 - Milestone 2:
   [X] Setting a board.
-  [ ] Set the player in the middle of the board to start the game. \*\* When I set this, then the player moves over the right border when moving right.
+  [X] Set the player in the middle of the board to start the game.
   [X] Avoid the player moving outside the board.
   [X] Obstacles coming from random positions along the width of the board.
   [X] Avoid obstacles going outside the board.
