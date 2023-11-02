@@ -33,7 +33,7 @@
 
 - Milestone 5:
   [X] Set the image for the obstacle (poison jar).
-  [X] If the score reaches 15, player wins.
+  [X] If the score reaches 15, player wins. (For the presentation of the game, this is changed to 6)
   [X] Display that winner wins in an overlay.
   [X] Tranform the game-over page to an overlay.
 
@@ -46,14 +46,15 @@
 - Milestone 7:
   [X] If the player collects the incorrect object (one that is not linked to the displayed word), decrease score by 1.
   [X] If score is < 0, it's game over.
+  [X] The array of words changes every 5 points, following this order: colors, numbers and food. (For the presentation, this is changed to 2)
 
 - Milestone 8:
-  [ ] Implement shooting, the player can destroy the obstacles (not the objects).
-  [ ] Images for the rest of arrays.
+  [ ] Implement shooting, the player can destroy the obstacles (not the objects). /\*\* Player shoots, but there's no collition detection yet.
+  [X] Images for the rest of arrays.
 
 - Milestone 9:
   [X] Overlay with intro and instructions of the game, with a button to 'Start'.
-  [ ] Style overlays.
+  [X] Style overlays.
 
 ## Further Improvement
 
@@ -65,10 +66,23 @@
 
 ## Description
 
-OOP game built with web technologies (HTML, CSS, JavaScript).
+Educational game to practice basic English vocabulary, perfect for people that are learning English as a foreign language or anglophones who are starting to read.
+
+Some explorers are collecting bugs in the forest. However, it's a windy season and they must be careful with the pieces of trunks that fall from above. They must destroy the trunks with their arrows and collect the right bugs to win the game.
 
 ## How to play
 
-Move player left and right with arrow keys.
-Avoid the obstacles.
-Collect the objects.
+- Move the player left and right with the arrow keys from your keyboard.
+- Don't let the tree trunks touch the player.
+- Collect the right objects according to the word displayed on top of the board.
+- Destroy the trunks pressing the spacebar.
+
+## How to win
+
+- In the demo version, only 6 bugs are needed to win.
+- Be careful! If you collect the incorrect bug, you'll lose one point.
+- You'll also lose if your score is less than 0.
+
+## Programming languages used
+
+OOP game built with web technologies (HTML, CSS, JavaScript).

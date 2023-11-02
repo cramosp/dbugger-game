@@ -17,7 +17,10 @@
 
     <div id="winner-overlay" class="overlay">
         <h2>Impressive!</h2>
-        <p>All bugs are captured and Crampis is the Queen now!</p>
+        <p>You're a real Dbugger;</p>
+        <img src="./images/winners.png" alt="explorers looking happy" class="explorersimage">
+        <br>
+        <br>
         <button class="playagain-button" onclick="playAgain()">
             <span>
             Play again
@@ -27,7 +30,10 @@
 
     <div id="game-over-overlay" class="overlay">
         <h2>OH NO!</h2>
-        <p>All bugs scaped from Crampis hands.</p>
+        <p>You've lost all the bugs!</p>
+        <img src="./images/gameover.png" alt="explorers looking sad" class="explorersimage">
+        <br>
+        <br>
         <button class="playagain-button" onclick="playAgain()"><span>
             Play again
             </span></button>
@@ -44,15 +50,17 @@
             <ul>
                 <li>Move the player left and right with the arrow keys from your keyboard.</li>
                 <li>Don't let the tree trunks touch the player.</li>
-                <li>Collect the right objects according to the word displayed on top of the board.</li>
                 <li>Destroy the trunks pressing the spacebar.</li>
+                <li>Collect the right objects according to the word displayed on top of the board = +1 .</li>
+                <li>If you collect any other bug = -1 .</li>
             </ul>
         </section>
 
         <section class="instructions">
             <h2>HOW TO WIN?</h2>
             <ul>
-                <li>Capture the bugs and score 15 points.</li>
+                <li>Capture the bugs and score 6 points.</li>
+                <li>Be careful! If you're score is less than 0, you'll lose.</li>
             </ul>
         </section>
         

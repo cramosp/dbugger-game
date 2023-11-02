@@ -54,19 +54,49 @@ class Object {
     let imageElm = document.createElement("img");
     switch (this.word) {
       case "blue":
-        imageElm.src = "./images/blue.png";
+        imageElm.src = "./images/colors/blue.png";
         break;
       case "green":
-        imageElm.src = "./images/green.png";
+        imageElm.src = "./images/colors/green.png";
         break;
       case "pink":
-        imageElm.src = "./images/pink.png";
+        imageElm.src = "./images/colors/pink.png";
         break;
       case "red":
-        imageElm.src = "./images/red.png";
+        imageElm.src = "./images/colors/red.png";
         break;
       case "yellow":
-        imageElm.src = "./images/yellow.png";
+        imageElm.src = "./images/colors/yellow.png";
+        break;
+      case "three":
+        imageElm.src = "./images/numbers/bug3.png";
+        break;
+      case "four":
+        imageElm.src = "./images/numbers/bug4.png";
+        break;
+      case "six":
+        imageElm.src = "./images/numbers/bug6.png";
+        break;
+      case "eight":
+        imageElm.src = "./images/numbers/bug8.png";
+        break;
+      case "nine":
+        imageElm.src = "./images/numbers/bug9.png";
+        break;
+      case "apple":
+        imageElm.src = "./images/food/applebug.png";
+        break;
+      case "banana":
+        imageElm.src = "./images/food/bananabug.png";
+        break;
+      case "biscuit":
+        imageElm.src = "./images/food/biscuitbug.png";
+        break;
+      case "milk":
+        imageElm.src = "./images/food/milkbug.png";
+        break;
+      case "pizza":
+        imageElm.src = "./images/food/pizzabug.png";
         break;
     }
 

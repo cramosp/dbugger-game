@@ -1,6 +1,6 @@
 class Bullet {
   constructor(positionX, positionY) {
-    this.height = 20;
+    this.height = 30;
     this.width = 10;
     this.bulletSpeed = 5;
     this.positionX = positionX;

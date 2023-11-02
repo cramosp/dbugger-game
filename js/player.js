@@ -1,6 +1,6 @@
 class Player {
   constructor() {
-    this.height = 100;
+    this.height = 80;
     this.width = 60;
     this.positionX = (myBoardWidth - this.width) / 2;
     this.positionY = 0;

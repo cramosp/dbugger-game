@@ -98,7 +98,7 @@ class Game {
       const randomWord = this.word.getRandomWordByScore(this.score);
       const newObject = new Object(randomWord);
       this.objectsArr.push(newObject);
-    }, 2000);
+    }, 1500);
   }
 
   initObjects() {
@@ -140,7 +140,7 @@ class Game {
           this.objectsArr[i].objectElm.remove();
           this.objectsArr.splice(i, 1);
 
-          if (this.score === 15) {
+          if (this.score === 6) {
             const winnerOverlay = document.getElementById("winner-overlay");
             winnerOverlay.classList.toggle("show-overlay");
             this.reset();
