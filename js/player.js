@@ -13,9 +13,9 @@ class Player {
     this.playerElm.style.bottom = this.positionY + "px";
 
     if (selectedCharacter === "player1") {
-      this.playerElm.style.backgroundImage = "url('../images/player1.png')";
+      this.playerElm.style.backgroundImage = "url('/images/player1.png')";
     } else {
-      this.playerElm.style.backgroundImage = "url('../images/player2.png')";
+      this.playerElm.style.backgroundImage = "url('/images/player2.png')";
     }
   }
 
