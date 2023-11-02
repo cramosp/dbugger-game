@@ -14,14 +14,29 @@
 </head>
 <body>
 
+    <div id="choose-player-overlay" class="overlay">
+        <h2>CHOOSE YOUR FAV</h2>
+        <div class="players">
+            <div id="player1" onclick="selectCharacter('player1')">
+                <img src="./images/player1.png" alt="explorer long hair" class="explorersimage">
+            </div>
+            <div id="player2" onclick="selectCharacter('player2')">
+                <img src="./images/player2.png" alt="explorer short hair" class="explorersimage">
+            </div>            
+        </div>
+
+        <button class="playagain-button" onclick="playAgain()">
+            <span>Play again</span>
+        </button>
+    </div>
+
     <div id="winner-overlay" class="overlay">
-        <h2>Impressive!</h2>
+        <h2>IMPRESSIVE!</h2>
         <p>You're a real Dbugger;</p>
         <img src="./images/winners.png" alt="explorers looking happy" class="explorersimage">
+
         <button class="playagain-button" onclick="playAgain()">
-            <span>
-            Play again
-            </span>
+            <span>Play again</span>
         </button>
     </div>
 
@@ -29,9 +44,10 @@
         <h2>OH NO!</h2>
         <p>You've lost all the bugs!</p>
         <img src="./images/gameover.png" alt="explorers looking sad" class="explorersimage">
-        <button class="playagain-button" onclick="playAgain()"><span>
-            Play again
-            </span></button>
+
+        <button class="playagain-button" onclick="playAgain()">
+            <span>Play again</span>
+        </button>
     </div>
 
     <div id="instructions-overlay" class="overlay show-overlay" >
@@ -59,9 +75,16 @@
             </ul>
         </section>
         
-        <button class="playagain-button" onclick="playAgain()"><span>
-            START
-            </span></button>
+        <div class="actions">
+            <button class="playagain-button" onclick="playAgain()">
+                <span>START</span>
+            </button>
+
+            <button class="playagain-button" onclick="choosePlayer()">
+                <span>CHOOSE PLAYER</span>
+            </button>
+        </div>
+
     </div>
 
     <section id="header">

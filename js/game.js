@@ -2,7 +2,7 @@ class Game {
   constructor() {
     this.score = 0;
     this.word = new Word(this.score);
-    this.player = new Player();
+    this.player = new Player("player1");
     this.obstaclesArr = [];
     this.objectsArr = [];
     this.updateScore();
@@ -28,6 +28,10 @@ class Game {
 
     this.createObject();
     this.initObjects();
+  }
+
+  changePlayer(selectedCharacter) {
+    this.player = new Player(selectedCharacter);
   }
 
   reset() {
@@ -62,33 +66,38 @@ class Game {
 
   initObstacles() {
     this.initObstacleIntervalId = setInterval(() => {
-      this.obstaclesArr.forEach((obstacleInstance) => {
-        obstacleInstance.moveDown();
+      this.obstaclesArr.forEach((obstacleInstance, index) => {
+        if (obstacleInstance.obstacleElm !== null) {
+          obstacleInstance.moveDown();
 
-        if (
-          obstacleInstance.positionY <
-          this.player.height - obstacleInstance.height
-        ) {
-          obstacleInstance.obstacleElm.remove();
-          this.obstaclesArr.shift();
+          if (
+            this.player.positionX <
+              obstacleInstance.positionX + obstacleInstance.width &&
+            this.player.positionX + this.player.width >
+              obstacleInstance.positionX &&
+            this.player.positionY <
+              obstacleInstance.positionY + obstacleInstance.height &&
+            this.player.positionY + this.player.height >
+              obstacleInstance.positionY &&
+            obstacleInstance.markedForRemoval !== true
+          ) {
+            obstacleInstance.removeDOMElement();
+            this.obstaclesArr.splice(index, 1);
+            const loserOverlay = document.getElementById("game-over-overlay");
+            loserOverlay.classList.toggle("show-overlay");
+            this.reset();
+          } else if (
+            obstacleInstance.positionY <
+            this.player.height - obstacleInstance.height
+          ) {
+            obstacleInstance.removeDOMElement();
+            this.obstaclesArr.splice(index, 1);
+          }
         }
+      });
 
-        if (
-          this.player.positionX <
-            obstacleInstance.positionX + obstacleInstance.width &&
-          this.player.positionX + this.player.width >
-            obstacleInstance.positionX &&
-          this.player.positionY <
-            obstacleInstance.positionY + obstacleInstance.height &&
-          this.player.positionY + this.player.height >
-            obstacleInstance.positionY
-        ) {
-          obstacleInstance.obstacleElm.remove();
-          this.obstaclesArr.shift();
-          const loserOverlay = document.getElementById("game-over-overlay");
-          loserOverlay.classList.toggle("show-overlay");
-          this.reset();
-        }
+      this.obstaclesArr = this.obstaclesArr.filter((obstacleInstance) => {
+        return obstacleInstance.obstacleElm !== null;
       });
     }, 30);
   }
@@ -103,15 +112,15 @@ class Game {
 
   initObjects() {
     this.initObjectIntervalId = setInterval(() => {
-      this.objectsArr.forEach((objectInstance) => {
+      this.objectsArr.forEach((objectInstance, index) => {
         objectInstance.moveDown();
 
         if (
           objectInstance.positionY <
           this.player.height - objectInstance.height
         ) {
-          objectInstance.objectElm.remove();
-          this.objectsArr.shift();
+          objectInstance.removeDOMElement();
+          this.objectsArr.splice(index, 1);
         }
 
         if (
@@ -123,13 +132,9 @@ class Game {
             objectInstance.positionY + objectInstance.height &&
           this.player.positionY + this.player.height > objectInstance.positionY
         ) {
-          objectInstance.markedForRemoval = true;
-        }
-      });
+          objectInstance.removeDOMElement();
 
-      for (let i = this.objectsArr.length - 1; i >= 0; i--) {
-        if (this.objectsArr[i].markedForRemoval) {
-          if (this.objectsArr[i].word === this.word.selectedWord) {
+          if (objectInstance.word === this.word.selectedWord) {
             this.score++;
             this.word.updateSelectedWord(this.score);
           } else {
@@ -137,8 +142,7 @@ class Game {
           }
 
           this.updateScore();
-          this.objectsArr[i].objectElm.remove();
-          this.objectsArr.splice(i, 1);
+          this.objectsArr.splice(index, 1);
 
           if (this.score === 6) {
             const winnerOverlay = document.getElementById("winner-overlay");
@@ -150,7 +154,11 @@ class Game {
             this.reset();
           }
         }
-      }
+      });
+
+      this.objectsArr = this.objectsArr.filter((objectInstance) => {
+        return objectInstance.objectElm !== null;
+      });
     }, 30);
   }
 

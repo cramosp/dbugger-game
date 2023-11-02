@@ -1,4 +1,27 @@
-# OOP Game
+# Dbugger; - OOP Game
+
+## Description
+
+Educational game to practice basic English vocabulary, perfect for people that are learning English as a foreign language or anglophones who are starting to read.
+
+Some explorers are collecting bugs in the forest. However, it's a windy season and they must be careful with the pieces of trunks that fall from above. They must destroy the trunks with their arrows and collect the right bugs to win the game.
+
+## How to play
+
+- Move the player left and right with the arrow keys from your keyboard.
+- Don't let the tree trunks touch the player.
+- Collect the right objects according to the word displayed on top of the board.
+- Destroy the trunks pressing the spacebar.
+
+## How to win
+
+- In the demo version, only 6 bugs are needed to win.
+- Be careful! If you collect the incorrect bug, you'll lose one point.
+- You'll also lose if your score is less than 0.
+
+## Tech stack
+
+OOP game built with web technologies (HTML, CSS, JavaScript).
 
 ## Minimum Viable Product (MVP)
 
@@ -55,33 +78,9 @@
 - Milestone 9:
   [X] Overlay with intro and instructions of the game, with a button to 'Start'.
   [X] Style overlays.
+  [X] Choose character before starting the game.
 
-## Further Improvement
+## FUTURE Improvement
 
-[ ] Make it responsive.
-[ ] Choose character before starting the game.
 [ ] Sounds.
-[ ] Increase speed as user moves to next level.
-
-## Description
-
-Educational game to practice basic English vocabulary, perfect for people that are learning English as a foreign language or anglophones who are starting to read.
-
-Some explorers are collecting bugs in the forest. However, it's a windy season and they must be careful with the pieces of trunks that fall from above. They must destroy the trunks with their arrows and collect the right bugs to win the game.
-
-## How to play
-
-- Move the player left and right with the arrow keys from your keyboard.
-- Don't let the tree trunks touch the player.
-- Collect the right objects according to the word displayed on top of the board.
-- Destroy the trunks pressing the spacebar.
-
-## How to win
-
-- In the demo version, only 6 bugs are needed to win.
-- Be careful! If you collect the incorrect bug, you'll lose one point.
-- You'll also lose if your score is less than 0.
-
-## Tech stack
-
-OOP game built with web technologies (HTML, CSS, JavaScript).
+[ ] Make it available for mobiles and tablets.

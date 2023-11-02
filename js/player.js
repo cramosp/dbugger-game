@@ -1,5 +1,5 @@
 class Player {
-  constructor() {
+  constructor(selectedCharacter) {
     this.height = 80;
     this.width = 60;
     this.positionX = (myBoardWidth - this.width) / 2;
@@ -11,6 +11,12 @@ class Player {
     this.playerElm.style.height = this.height + "px";
     this.playerElm.style.left = this.positionX + "px";
     this.playerElm.style.bottom = this.positionY + "px";
+
+    if (selectedCharacter === "player1") {
+      this.playerElm.style.backgroundImage = "url('../images/player1.png')";
+    } else {
+      this.playerElm.style.backgroundImage = "url('../images/player2.png')";
+    }
   }
 
   moveLeft() {
@@ -34,8 +40,9 @@ class Player {
     );
     const bulletIntervalId = setInterval(() => {
       bullet.moveUp();
-      obstaclesArr.forEach((obstacleInstance) => {
+      obstaclesArr.forEach((obstacleInstance, index) => {
         if (
+          obstacleInstance.obstacleElm !== null &&
           bullet.element.offsetLeft >=
             obstacleInstance.obstacleElm.offsetLeft &&
           bullet.element.offsetLeft <
@@ -45,8 +52,8 @@ class Player {
             obstacleInstance.obstacleElm.offsetTop + obstacleInstance.height
         ) {
           bullet.element.remove();
-          obstacleInstance.obstacleElm.remove();
-          obstaclesArr.shift();
+          obstacleInstance.removeDOMElement();
+          obstaclesArr.splice(index, 1);
           clearInterval(bulletIntervalId);
         } else if (bullet.element.offsetTop < 0) {
           bullet.element.remove();

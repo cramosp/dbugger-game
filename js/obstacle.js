@@ -27,6 +27,11 @@ class Obstacle {
     this.positionY -= this.obstacleSpeed;
     this.obstacleElm.style.bottom = this.positionY + "px";
   }
+
+  removeDOMElement() {
+    this.obstacleElm.remove();
+    this.obstacleElm = null;
+  }
 }
 
 class Object {
@@ -38,6 +43,7 @@ class Object {
     this.positionY = myBoardBounds.height - this.height;
     this.objectElm = null;
     this.objectSpeed = 3;
+    this.markedForRemoval = false;
 
     this.createDomElement();
   }
@@ -109,5 +115,10 @@ class Object {
   moveDown() {
     this.positionY -= this.objectSpeed;
     this.objectElm.style.bottom = this.positionY + "px";
+  }
+
+  removeDOMElement() {
+    this.objectElm.remove();
+    this.objectElm = null;
   }
 }

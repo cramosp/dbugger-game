@@ -31,8 +31,8 @@ body {
 }
 
 #board {
-    width: 1000px;
-    height: 600px;
+    width: 800px;
+    height: 800px;
     margin: auto;
     padding: 10px;
     border: 5px solid;
@@ -119,6 +119,16 @@ h2, p {
     transition: left 0.1s linear;
 }
 
+.selected-player {
+    border: 2px solid rgb(254 152 181);
+}
+
+.players {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
 .obstacle {
     background-image: url('../images/obstacle2.png'); /* Change for a better one */
     background-size: contain;
@@ -143,6 +153,26 @@ h2, p {
 }
 
 @media screen and (max-width: 768px) {
+    #header {
+        width: 80%;
+        font-size: 20px;
+    }
+
+    #score {
+        width: 60%;
+    }
+
+    #word {
+        width: 40%;
+    }
+
+    #board {
+        width: 80%;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
     #header {
         width: 80%;
         font-size: 20px;
