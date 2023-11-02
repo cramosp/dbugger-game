@@ -77,7 +77,7 @@ h2, p {
     height: 300px;
 }
 
-.playagain-button {
+.playagain-button, .touch-buttons button {
     width: 200px;
     height: 40px;
     font-family: inherit;
@@ -88,10 +88,29 @@ h2, p {
     margin: 20px;
 }
 
-.playagain-button:hover,.playagain-button:active{
+.playagain-button:hover, .playagain-button:active, .touch-buttons button:hover, .touch-buttons button:active {
     background: rgb(255 51 119);
     color: white;
     cursor: pointer;
+}
+
+.touch-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    display: none;
+}
+
+.touch-buttons .right, .touch-buttons .left {
+    width: 70px;
+    height: 40px;
+    font-family: inherit;
+    font-size: 15px;
+    background: rgb(254 152 181);
+    border: none;
+    border-radius: 4px;
+    margin: 20px;
 }
 
 .overlay {
@@ -111,6 +130,10 @@ h2, p {
     flex-direction: column;
 }
 
+.show-overlay p {
+    text-align: center;
+}
+
 .player {
     background-image: url('../images/player1.png');
     background-size: contain;
@@ -128,13 +151,15 @@ h2, p {
 }
 
 .selected-player {
-    border: 2px solid rgb(254 152 181);
+    box-shadow: rgb(254 152 181) 0px 7px 29px 0px;
+    border-radius: 10px;
 }
 
 .players {
     display: flex;
     flex-direction: row;
     gap: 50px;
+    margin: 30px 0;
 }
 
 .obstacle {
@@ -160,7 +185,7 @@ h2, p {
     position: absolute;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     #header {
         width: 80%;
         font-size: 20px;
@@ -176,11 +201,29 @@ h2, p {
 
     #board {
         width: 80%;
-        height: 400px;
+        height: 550px;
+    }
+
+    .touch-buttons {
+        display: flex;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .instructions ul li {
+        font-size: 15px;
+    }
+
+    .explorersimage {
+        height: 150px;
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     #header {
         width: 80%;
         font-size: 20px;
@@ -196,11 +239,15 @@ h2, p {
 
     #board {
         width: 80%;
-        height: 400px;
+        height: 700px;
+    }
+
+    .touch-buttons {
+        display: flex;
     }
 }
 
-@media screen and (max-width: 2560px) {
+@media screen and (min-width: 1024px) and (max-width: 2560px) {
     #header {
         width: 80%;
         font-size: 20px;
@@ -216,6 +263,6 @@ h2, p {
 
     #board {
         width: 80%;
-        height: 00px;
+        height: 600px;
     }
 }

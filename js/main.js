@@ -35,3 +35,16 @@ function selectCharacter(player) {
 
   game.changePlayer(player);
 }
+
+function movePlayerRight() {
+  game.player.moveRight();
+}
+
+function movePlayerLeft() {
+  game.player.moveLeft();
+}
+
+function shootObstacle() {
+  game.player.shoot(game.obstaclesArr);
+  arrowSound();
+}
