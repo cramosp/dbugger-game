@@ -10,20 +10,20 @@ class Bullet {
   }
 
   createDomElement() {
-    this.bulletElm = document.createElement("div");
+    this.element = document.createElement("div");
 
-    this.bulletElm.classList.add("bullet");
-    this.bulletElm.style.width = this.width + "px";
-    this.bulletElm.style.height = this.height + "px";
-    this.bulletElm.style.left = this.positionX + "px";
-    this.bulletElm.style.top = this.positionY + "px";
+    this.element.classList.add("bullet");
+    this.element.style.width = this.width + "px";
+    this.element.style.height = this.height + "px";
+    this.element.style.left = this.positionX + "px";
+    this.element.style.top = this.positionY + "px";
 
     const parentElm = document.getElementById("board");
-    parentElm.appendChild(this.bulletElm);
+    parentElm.appendChild(this.element);
   }
 
   moveUp() {
     this.positionY -= this.bulletSpeed;
-    this.bulletElm.style.top = this.positionY + "px";
+    this.element.style.top = this.positionY + "px";
   }
 }

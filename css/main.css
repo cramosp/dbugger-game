@@ -85,6 +85,7 @@ h2, p {
     background: rgb(254 152 181);
     border: none;
     border-radius: 4px;
+    margin: 20px;
 }
 
 .playagain-button:hover,.playagain-button:active{

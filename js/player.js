@@ -28,18 +28,28 @@ class Player {
   }
 
   shoot(obstaclesArr) {
-    console.log(this.playerElm.offsetWidth);
     const bullet = new Bullet(
       this.playerElm.offsetLeft + this.width / 2,
       this.playerElm.offsetTop
     );
-
     const bulletIntervalId = setInterval(() => {
       bullet.moveUp();
-
       obstaclesArr.forEach((obstacleInstance) => {
-        if (bullet.bulletElm.offsetTop < 0) {
-          bullet.bulletElm.remove();
+        if (
+          bullet.element.offsetLeft >=
+            obstacleInstance.obstacleElm.offsetLeft &&
+          bullet.element.offsetLeft <
+            obstacleInstance.obstacleElm.offsetLeft + obstacleInstance.width &&
+          bullet.element.offsetTop > obstacleInstance.obstacleElm.offsetTop &&
+          bullet.element.offsetTop <=
+            obstacleInstance.obstacleElm.offsetTop + obstacleInstance.height
+        ) {
+          bullet.element.remove();
+          obstacleInstance.obstacleElm.remove();
+          obstaclesArr.shift();
+          clearInterval(bulletIntervalId);
+        } else if (bullet.element.offsetTop < 0) {
+          bullet.element.remove();
           clearInterval(bulletIntervalId);
         }
       });

@@ -4,15 +4,15 @@
 
 - Have 1 player at the bottom that moves left and right.
 - Have obstacles coming from above that the player needs to avoid.
-- If there's a collition between the player and any obstacle, it's game over.
+- If there's a collision between the player and any obstacle, it's game over.
 
 ## Milestones
 
 - Milesstone 1:
   [X] Player that moves left to right.
   [X] Obstacles coming from above from a same position every 3 seconds.
-  [X] Detect collition.
-  [X] Display game-over if there's a collition.
+  [X] Detect collision.
+  [X] Display game-over if there's a collision.
 
 - Milestone 2:
   [X] Setting a board.
@@ -49,7 +49,7 @@
   [X] The array of words changes every 5 points, following this order: colors, numbers and food. (For the presentation, this is changed to 2)
 
 - Milestone 8:
-  [ ] Implement shooting, the player can destroy the obstacles (not the objects). /\*\* Player shoots, but there's no collition detection yet.
+  [X] Implement shooting, the player can destroy the obstacles (not the objects).
   [X] Images for the rest of arrays.
 
 - Milestone 9:
@@ -58,8 +58,7 @@
 
 ## Further Improvement
 
-[ ] Change help button to an icon button.
-[ ] Make it responsive (score and word).
+[ ] Make it responsive.
 [ ] Choose character before starting the game.
 [ ] Sounds.
 [ ] Increase speed as user moves to next level.
@@ -83,6 +82,6 @@ Some explorers are collecting bugs in the forest. However, it's a windy season a
 - Be careful! If you collect the incorrect bug, you'll lose one point.
 - You'll also lose if your score is less than 0.
 
-## Programming languages used
+## Tech stack
 
 OOP game built with web technologies (HTML, CSS, JavaScript).
