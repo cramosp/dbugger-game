@@ -111,12 +111,20 @@ h2, p {
     flex-direction: column;
 }
 
-#player {
+.player {
     background-image: url('../images/player1.png');
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
     transition: left 0.1s linear;
+}
+
+.player1 {
+    background-image: url('../images/player1.png');
+}
+
+.player2 {
+    background-image: url('../images/player2.png');
 }
 
 .selected-player {

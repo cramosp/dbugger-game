@@ -2,7 +2,8 @@ class Game {
   constructor() {
     this.score = 0;
     this.word = new Word(this.score);
-    this.player = new Player("player1");
+    this.selectedCharacter = "player1";
+    this.player = new Player(this.selectedCharacter);
     this.obstaclesArr = [];
     this.objectsArr = [];
     this.updateScore();
@@ -31,13 +32,14 @@ class Game {
   }
 
   changePlayer(selectedCharacter) {
-    this.player = new Player(selectedCharacter);
+    this.selectedCharacter = selectedCharacter;
+    this.player = new Player(this.selectedCharacter);
   }
 
   reset() {
     this.score = 0;
     this.word = new Word(this.score);
-    this.player = new Player();
+    this.player = new Player(this.selectedCharacter);
     this.updateScore();
 
     clearInterval(this.obstacleCreateIntervalId);

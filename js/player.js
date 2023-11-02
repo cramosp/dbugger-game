@@ -6,16 +6,18 @@ class Player {
     this.positionY = 0;
     this.step = 15;
 
-    this.playerElm = document.getElementById("player");
+    this.playerElm = document.querySelector(".player");
     this.playerElm.style.width = this.width + "px";
     this.playerElm.style.height = this.height + "px";
     this.playerElm.style.left = this.positionX + "px";
     this.playerElm.style.bottom = this.positionY + "px";
 
     if (selectedCharacter === "player1") {
-      this.playerElm.style.backgroundImage = "url('/images/player1.png')";
+      this.playerElm.classList.remove("player2");
+      this.playerElm.classList.add("player1");
     } else {
-      this.playerElm.style.backgroundImage = "url('/images/player2.png')";
+      this.playerElm.classList.remove("player1");
+      this.playerElm.classList.add("player2");
     }
   }
 
