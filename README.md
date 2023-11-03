@@ -1,4 +1,4 @@
-## Dbugger;
+# Dbugger;
 
 ## Description
 
@@ -13,11 +13,25 @@ Some explorers are collecting bugs in the forest. However, it's a windy season a
 - Collect the right objects according to the word displayed on top of the board.
 - Destroy the trunks pressing the spacebar.
 
+<img src="./images/instructions.png" alt="Instructions" />
+
 ## How to win
 
 - In the demo version, only 6 bugs are needed to win.
 - Be careful! If you collect the incorrect bug, you'll lose one point.
 - You'll also lose if your score is less than 0.
+
+<img src='./images/winneroverlay.png' alt='Winner overlay'>
+
+<img src='./images/loseroverlay.png' alt='Loser overlay'>
+
+## Demo
+
+https://cramosp.github.io/dbugger-game/
+
+<img src='./images/gameimage.png' alt='Game example'>
+
+<img src='./images/gameimage2.png' alt='Game example'>
 
 ## Tech stack
 
