@@ -1,4 +1,4 @@
-const spacebarSound = new Audio("../sounds/arrow.mp3");
+const spacebarSound = document.getElementById("arrowSound");
 
 function arrowSound() {
   if (spacebarSound.paused) {

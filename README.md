@@ -83,4 +83,4 @@ OOP game built with web technologies (HTML, CSS, JavaScript).
 ## FUTURE Improvement
 
 [X] Sounds.
-[X] Make it available for mobiles and tablets (including the arrow keys and spacebar on screen).
+[ ] Adapt it for mobiles and tablets properly.
